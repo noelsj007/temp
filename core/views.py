@@ -15,7 +15,7 @@ def frontPage(request):
     products = Product.objects.filter(status=Product.ACTIVE)[0:6]
     category = Category.objects.all()
     vendors = Vendor.objects.filter(status=Product.ACTIVE)[0:6]
-    featured_products = Product.objects.all().order_by('sold').values()[0:4]
+    featured_products = Product.objects.all().order_by('sold')[0:4]
     product_rating = Product.objects.values_list('rating', flat=True)
 
     return render(request, 'frontPage.html', {'products': products, 'category':category, 'vendors': vendors, 'featured_products': featured_products, 'product_rating': product_rating})

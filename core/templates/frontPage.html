@@ -121,9 +121,11 @@
            <div class="product-item bgof mb-4">
 
               
-               <div class="product-img position-relative overflow-hidden">
-                    <img class = "img-fluid" src="{{ i.image.url }}" alt="Image of {{ i.title }}">
-                </div>
+            {% if i.image %}
+            <div class="product-img position-relative overflow-hidden">
+              <img class = "img-fluid" src="{{ i.image.url }}" alt="Image of {{ i.title }}">  
+            </div>
+            {% endif %}
               
                  
                 <div class="text-center py-4">

@@ -45,7 +45,8 @@ class CustomUser(AbstractUser):
     mobile = models.CharField(max_length=15, null=True, blank= True)
     is_verified = models.BooleanField(default=False)
     forget_password = models.CharField(max_length=255, blank= True, null=True)
-    is_vendor = models.BooleanField(default=False)
+    is_vendor = models.BooleanField(default=False, null=True)
+    first_name = models.CharField(max_length=100, null=True, default=False)
   
 
     USERNAME_FIELD = 'email'
