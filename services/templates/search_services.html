@@ -1,0 +1,66 @@
+{% load static %}
+
+<title> Search for services </title>
+<head>
+    <!-- Google Web Fonts -->
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">  
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css' %}" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="{% static 'lib/animate/animate.min.css' %}" rel="stylesheet">
+    <link href="{% static 'lib/owlcarousel/assets/owl.carousel.min.css' %}" rel="stylesheet">
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="{% static 'css/style.css' %}" rel="stylesheet">
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="{% static 'lib/easing/easing.min.js' %}"></script>
+    <script src="{% static 'lib/owlcarousel/owl.carousel.min.js' %}"></script>
+
+
+    <!-- Template Javascript -->
+    <script src="{% static 'js/main.js' %}"></script>
+
+</head>
+
+{% block content %} 
+
+<h3 class="text-2xl text-dark">Search results for "{{ service_query }}":</h3> 
+    
+    {% if services %}
+    <div class="container-fluid pb-5">
+        <div class="row px-xl-5">
+            {% for j in services %}
+            <div class="col-lg-5 mb-30">
+                <div id="product-carousel" class="carousel slide" data-ride="carousel">
+                    <div class="carousel-inner bg-light">
+                        <div class="carousel-item active">
+                            <div class="product-img position-relative overflow-hidden">
+                                <img class="card-img" src="{{ j.image.url }}" alt="Image of {{ j.title }} 1">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-7 h-auto mb-30 text-dark">
+                        <div class="bg-light p-30 text-dark w-100">
+                            <h3 class="text-dark"> {{ j.title }}</h3>
+                        </div>
+                    </div> 
+                </div>
+            </div>   
+            {% endfor %} 
+        </div>
+    </div> 
+
+    {% else %}
+        <hr>
+        <p class="text-dark h4">There are no services matching this querry!</p>
+    {% endif %} 
+        
+   
+{% endblock %}
+      
